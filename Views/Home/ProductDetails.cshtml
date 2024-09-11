@@ -1,0 +1,20 @@
+﻿@model ShoeStore_Group9.Models.Product
+
+<div class="row align-items-center">
+    <div class="col-md-6 text-center">
+        <img src="@Model.ImageURL" class="img-fluid" alt="@Model.Name" />
+    </div>
+    <div class="col-md-6">
+        <h2 class="product-title">@Model.Name</h2>
+        <p class="product-description">@Model.Description</p>
+        <p class="product-price"><strong>Price: $@Model.Price</strong></p>
+        <p class="product-stock"><strong>Available Stock: @Model.StockQuantity</strong></p>
+        <form method="post" action="@Url.Action("AddToCart", "ShoppingCart", new { id = Model.ProductID })">
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" value="1" min="1" max="@Model.StockQuantity" class="form-control quantity-input" />
+            </div>
+            <button type="submit" class="btn btn-success btn-lg">Add to Cart</button>
+        </form>
+    </div>
+</div>

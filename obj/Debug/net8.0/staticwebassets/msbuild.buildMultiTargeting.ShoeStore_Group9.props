@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ShoeStore_Group9.props" />
+</Project>

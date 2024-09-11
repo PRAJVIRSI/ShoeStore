@@ -1,0 +1,21 @@
+﻿@model ShoeStore_Group9.Models.Category
+
+@{
+    string formAction = Url.Action((string)ViewBag.Action, "Admin", new { id = Model.CategoryID });
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form method="post" action="@formAction">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        <label for="categoryName">Category Name:</label>
+        <input type="text" id="categoryName" name="CategoryName" value="@Model.CategoryName" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" name="Description" class="form-control" required>@Model.Description</textarea>
+    </div>
+    <button type="submit" class="btn btn-success">@ViewBag.ButtonText</button>
+</form>

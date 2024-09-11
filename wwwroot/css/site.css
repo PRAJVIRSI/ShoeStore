@@ -1,0 +1,333 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.content {
+    flex: 1;
+    padding-bottom: 2rem;
+}
+
+.product-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.product-description {
+    font-size: 1.2rem;
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+}
+
+.product-price, .product-stock {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.quantity-input {
+    max-width: 100px;
+    margin-bottom: 1.5rem;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    padding: 0.75rem 1.25rem;
+    font-size: 1.25rem;
+}
+
+    .btn-success:hover {
+        background-color: #218838;
+    }
+
+.jumbotron {
+    background-color: #e9ecef;
+    padding: 2rem 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+    .jumbotron h1 {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+
+    .jumbotron p.lead {
+        font-size: 1.25rem;
+        font-weight: 300;
+        margin-bottom: 1.5rem;
+    }
+
+    .jumbotron hr {
+        border-top: 1px solid #6c757d;
+    }
+
+    .jumbotron .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 0.75rem 1.25rem;
+        font-size: 1.25rem;
+        transition: background-color 0.3s ease;
+    }
+
+        .jumbotron .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+h2 {
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.card {
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    transition: box-shadow 0.3s ease;
+}
+
+    .card:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+.card-img-top {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    max-height: 250px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.card .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s ease;
+}
+
+    .card .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+footer.footer {
+    background-color: #343a40 !important;
+    color: #ffffff !important;
+    padding: 1.5rem 0 !important;
+    text-align: center !important;
+    border-top: 2px solid #007bff !important;
+    position: relative !important; /* Override the absolute position */
+    bottom: 0 !important;
+    width: 100% !important;
+    flex-shrink: 0 !important;
+    z-index: 10 !important;
+}
+
+    footer.footer a {
+        color: #007bff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+        footer.footer a:hover {
+            color: #0056b3;
+        }
+
+
+.table .cart-image {
+    width: 100px; 
+    text-align: center;
+}
+
+    .table .cart-image img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+.checkout-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #343a40;
+}
+
+.checkout-form {
+    max-width: 600px;
+    margin: auto;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-section {
+    margin-bottom: 2rem;
+}
+
+    .checkout-section h3 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+        color: #343a40;
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 0.5rem;
+    }
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+    .form-row .form-group {
+        flex: 1;
+        margin-right: 0.5rem;
+    }
+
+        .form-row .form-group:last-child {
+            margin-right: 0;
+        }
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    font-size: 1.25rem;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+}
+
+    .btn-success:hover {
+        background-color: #218838;
+    }
+
+@media (max-width: 768px) {
+    .checkout-title {
+        font-size: 2rem;
+    }
+
+    .checkout-section h3 {
+        font-size: 1.5rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+        .form-row .form-group {
+            margin-right: 0;
+        }
+}
+
+
+@media (max-width: 768px) {
+    .product-title {
+        font-size: 2rem;
+    }
+
+    .product-description {
+        font-size: 1rem;
+    }
+
+    .jumbotron h1 {
+        font-size: 2.5rem;
+    }
+
+    .jumbotron p.lead {
+        font-size: 1rem;
+    }
+
+    .card-img-top {
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .product-title {
+        font-size: 1.75rem;
+    }
+
+    .product-description {
+        font-size: 0.875rem;
+    }
+
+    .jumbotron h1 {
+        font-size: 2rem;
+    }
+
+    .jumbotron p.lead {
+        font-size: 0.875rem;
+    }
+
+    .card-img-top {
+        max-height: 150px;
+    }
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #00bfa5, #004d40, #00e676, #1de9b6), linear-gradient(-45deg, #00acc1, #004d40, #00bfa5, #00796b);
+    background-size: 200% 200%;
+    animation: animateTealBackground 4s ease-in-out infinite;
+    z-index: -1;
+    opacity: 0.9;
+}
+
+@keyframes animateTealBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}

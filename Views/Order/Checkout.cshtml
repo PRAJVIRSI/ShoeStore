@@ -1,0 +1,210 @@
+﻿@model ShoeStore_Group9.Models.Order
+
+<h2 class="checkout-title">Checkout</h2>
+
+<form method="post" action="@Url.Action("PlaceOrder", "Order")" class="checkout-form" id="checkoutForm">
+    <div class="checkout-section">
+        <h3>Personal Information</h3>
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="FirstName" class="form-control" />
+            <small class="text-danger" id="firstNameError" style="display:none;"></small>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="LastName" class="form-control" />
+            <small class="text-danger" id="lastNameError" style="display:none;"></small>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="Email" class="form-control" />
+            <small class="text-danger" id="emailError" style="display:none;"></small>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="PhoneNumber" class="form-control" />
+            <small class="text-danger" id="phoneError" style="display:none;"></small>
+        </div>
+    </div>
+
+    <div class="checkout-section">
+        <h3>Shipping Address</h3>
+        <div class="form-group">
+            <label for="address">Street Address:</label>
+            <input type="text" id="address" name="Address" class="form-control" />
+            <small class="text-danger" id="addressError" style="display:none;"></small>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="City" class="form-control" />
+                <small class="text-danger" id="cityError" style="display:none;"></small>
+            </div>
+            <div class="col-md-4 form-group">
+                <label for="state">State:</label>
+                <input type="text" id="state" name="State" class="form-control" />
+                <small class="text-danger" id="stateError" style="display:none;"></small>
+            </div>
+            <div class="col-md-2 form-group">
+                <label for="zip">Zip Code:</label>
+                <input type="text" id="zip" name="Zip" class="form-control" />
+                <small class="text-danger" id="zipError" style="display:none;"></small>
+            </div>
+        </div>
+    </div>
+
+    <div class="checkout-section">
+        <h3>Payment Information</h3>
+        <div class="form-group">
+            <label for="cardName">Name on Card:</label>
+            <input type="text" id="cardName" name="CardName" class="form-control" />
+            <small class="text-danger" id="cardNameError" style="display:none;"></small>
+        </div>
+        <div class="form-group">
+            <label for="card">Credit Card Number:</label>
+            <input type="text" id="card" name="CardNumber" class="form-control" />
+            <small class="text-danger" id="cardError" style="display:none;"></small>
+        </div>
+        <div class="form-row">
+            <div class="col-md-4 form-group">
+                <label for="expMonth">Expiration Month:</label>
+                <input type="text" id="expMonth" name="ExpMonth" class="form-control" />
+                <small class="text-danger" id="expMonthError" style="display:none;"></small>
+            </div>
+            <div class="col-md-4 form-group">
+                <label for="expYear">Expiration Year:</label>
+                <input type="text" id="expYear" name="ExpYear" class="form-control" />
+                <small class="text-danger" id="expYearError" style="display:none;"></small>
+            </div>
+            <div class="col-md-4 form-group">
+                <label for="cvv">CVV:</label>
+                <input type="password" id="cvv" name="CVV" class="form-control" />
+                <small class="text-danger" id="cvvError" style="display:none;"></small>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success btn-lg btn-block">Place Order</button>
+</form>
+
+<script>
+    document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+        let isValid = true;
+
+        document.querySelectorAll('.text-danger').forEach(function (element) {
+            element.style.display = 'none';
+            element.textContent = '';
+        });
+
+        const firstName = document.getElementById('firstName');
+        const firstNameError = document.getElementById('firstNameError');
+        if (firstName.value.trim() === '' || !/^[A-Za-z]+$/.test(firstName.value)) {
+            firstNameError.textContent = 'First name should contain only alphabets.';
+            firstNameError.style.display = 'block';
+            isValid = false;
+        }
+
+        const lastName = document.getElementById('lastName');
+        const lastNameError = document.getElementById('lastNameError');
+        if (lastName.value.trim() === '' || !/^[A-Za-z]+$/.test(lastName.value)) {
+            lastNameError.textContent = 'Last name should contain only alphabets.';
+            lastNameError.style.display = 'block';
+            isValid = false;
+        }
+
+        const email = document.getElementById('email');
+        const emailError = document.getElementById('emailError');
+        if (email.value.trim() === '' || !/^[a-z0-9._%+-]+@@[a-z0-9.-]+\.[a-z]{2,}$/.test(email.value)) {
+            emailError.textContent = 'Please enter a valid email address.';
+            emailError.style.display = 'block';
+            isValid = false;
+        }
+
+        const phone = document.getElementById('phone');
+        const phoneError = document.getElementById('phoneError');
+        if (phone.value.trim() === '' || !/^\d{10}$/.test(phone.value)) {
+            phoneError.textContent = 'Phone number should be exactly 10 digits.';
+            phoneError.style.display = 'block';
+            isValid = false;
+        }
+
+        const address = document.getElementById('address');
+        const addressError = document.getElementById('addressError');
+        if (address.value.trim() === '') {
+            addressError.textContent = 'Street address is required.';
+            addressError.style.display = 'block';
+            isValid = false;
+        }
+
+        const city = document.getElementById('city');
+        const cityError = document.getElementById('cityError');
+        if (city.value.trim() === '') {
+            cityError.textContent = 'City is required.';
+            cityError.style.display = 'block';
+            isValid = false;
+        }
+
+        const state = document.getElementById('state');
+        const stateError = document.getElementById('stateError');
+        if (state.value.trim() === '') {
+            stateError.textContent = 'State is required.';
+            stateError.style.display = 'block';
+            isValid = false;
+        }
+
+        const zip = document.getElementById('zip');
+        const zipError = document.getElementById('zipError');
+        if (zip.value.trim() === '') {
+            zipError.textContent = 'Zip code is required.';
+            zipError.style.display = 'block';
+            isValid = false;
+        }
+
+        const cardName = document.getElementById('cardName');
+        const cardNameError = document.getElementById('cardNameError');
+        if (cardName.value.trim() === '' || !/^[A-Za-z ]+$/.test(cardName.value)) {
+            cardNameError.textContent = 'Name on card should contain only alphabets.';
+            cardNameError.style.display = 'block';
+            isValid = false;
+        }
+
+        const card = document.getElementById('card');
+        const cardError = document.getElementById('cardError');
+        if (card.value.trim() === '' || !/^\d{16}$/.test(card.value)) {
+            cardError.textContent = 'Credit card number should be 16 digits.';
+            cardError.style.display = 'block';
+            isValid = false;
+        }
+
+        const expMonth = document.getElementById('expMonth');
+        const expMonthError = document.getElementById('expMonthError');
+        if (expMonth.value.trim() === '' || !/^(0[1-9]|1[0-2])$/.test(expMonth.value)) {
+            expMonthError.textContent = 'Please enter a valid month between 01 and 12.';
+            expMonthError.style.display = 'block';
+            isValid = false;
+        }
+
+        const expYear = document.getElementById('expYear');
+        const expYearError = document.getElementById('expYearError');
+        const currentYear = new Date().getFullYear();
+        if (expYear.value.trim() === '' || !/^\d{4}$/.test(expYear.value) || parseInt(expYear.value) < currentYear) {
+            expYearError.textContent = 'Please enter a valid 4-digit year.';
+            expYearError.style.display = 'block';
+            isValid = false;
+        }
+
+        const cvv = document.getElementById('cvv');
+        const cvvError = document.getElementById('cvvError');
+        if (cvv.value.trim() === '' || !/^\d{3}$/.test(cvv.value)) {
+            cvvError.textContent = 'CVV should be 3 digits.';
+            cvvError.style.display = 'block';
+            isValid = false;
+        }
+
+        if (isValid) {
+            alert('Thank you for your purchase!');
+        } else {
+            event.preventDefault();
+        }
+    });
+</script>

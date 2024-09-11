@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ShoeStore_Group9.Models.Product>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="wrapper">
+    <div class="content">
+        <div class="container mt-5">
+            <div class="jumbotron">
+                <h1 class="display-4">Welcome to Our Shoe Store!</h1>
+                <p class="lead">
+                    We offer a wide variety of shoes for every occasion, including sports, formal wear, and casual styles.
+                    Explore our collection to find the perfect pair for you!
+                </p>
+                <hr class="my-4">
+                <p>
+                    Click the button below to browse all our products.
+                </p>
+                <a class="btn btn-primary btn-lg" href="@Url.Action("Products", "Home")" role="button">View All Products</a>
+            </div>
+
+            <h2>Featured Products</h2>
+            <div class="row">
+                @foreach (var product in Model.Take(3))
+                {
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img src="@Url.Content(product.ImageURL)" class="card-img-top" alt="@product.Name">
+                            <div class="card-body">
+                                <h5 class="card-title">@product.Name</h5>
+                                <p class="card-text">@product.Description</p>
+                                <p class="card-text"><strong>Price: $@product.Price</strong></p>
+                                <a href="@Url.Action("ProductDetails", "Home", new { id = product.ProductID })" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

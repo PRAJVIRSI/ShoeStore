@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ShoeStore_Group9.Models.ShoppingCart>
+
+<h2>Your Shopping Cart</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th> <!-- Placeholder for image column -->
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="cart-image">
+                    <img src="@item.Product.ImageURL" class="img-thumbnail" alt="@item.Product.Name" />
+                </td>
+                <td>@item.Product.Name</td>
+                <td>$@item.Product.Price</td>
+                <td>@item.Quantity</td>
+                <td>$@(item.Product.Price * item.Quantity)</td>
+                <td>
+                    <form method="post" action="@Url.Action("RemoveFromCart", new { id = item.CartItemID })">
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="text-right">
+    <a href="@Url.Action("Checkout", "Order")" class="btn btn-primary">Proceed to Checkout</a>
+</div>
